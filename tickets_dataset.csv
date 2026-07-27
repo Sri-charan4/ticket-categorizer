@@ -1,0 +1,241 @@
+ticket_text,category
+"I was charged twice for my subscription this month",BILLING
+"Refund for my last invoice has not been processed yet",BILLING
+"Can you explain why my bill amount increased suddenly",BILLING
+"My payment failed but the amount was still deducted from my account",BILLING
+"I want to downgrade my plan and get a prorated refund",BILLING
+"The invoice PDF attached to my email is showing wrong tax amount",BILLING
+"Please cancel my subscription and confirm the refund timeline",BILLING
+"I was billed for a plan I never upgraded to",BILLING
+"Credit card on file was charged without my approval",BILLING
+"Why does my monthly statement show an extra service fee",BILLING
+"I need a copy of my receipt for last month's payment",BILLING
+"My coupon code did not apply and I was charged full price",BILLING
+"Requesting a refund because the service was down all week",BILLING
+"There is a discrepancy between the quoted price and the charged amount",BILLING
+"How do I update my billing address for future invoices",BILLING
+"I cancelled a week ago but was still charged this cycle",BILLING
+"Can I switch from annual billing to monthly billing",BILLING
+"The auto-renewal charged me even after I turned it off",BILLING
+"I need an itemized breakdown of charges on my last bill",BILLING
+"My free trial ended but I was charged the full plan price early",BILLING
+"App crashes every time I try to log in on Android",TECHNICAL
+"Getting a 500 internal server error when submitting the form",TECHNICAL
+"The dashboard is not loading, stuck on a blank white screen",TECHNICAL
+"API returns a timeout error when I call the /users endpoint",TECHNICAL
+"File upload feature is broken, files stay stuck at 0 percent",TECHNICAL
+"Password reset link in the email is not working",TECHNICAL
+"Getting a 404 error when trying to open my saved project",TECHNICAL
+"The mobile app freezes after the splash screen on iOS",TECHNICAL
+"Two-factor authentication code is never delivered to my phone",TECHNICAL
+"Export to CSV button throws an error and downloads an empty file",TECHNICAL
+"Search feature returns no results even for existing records",TECHNICAL
+"Website loads extremely slowly and images fail to render",TECHNICAL
+"Integration with our CRM stopped syncing data since yesterday",TECHNICAL
+"I keep getting logged out automatically every few minutes",TECHNICAL
+"The notification bell icon shows a count but no notifications open",TECHNICAL
+"Bulk import of contacts fails with an unknown parsing error",TECHNICAL
+"Video call feature disconnects randomly during meetings",TECHNICAL
+"Getting a certificate error when accessing the app over HTTPS",TECHNICAL
+"The API key I generated does not authenticate any requests",TECHNICAL
+"Database connection error appears when loading reports",TECHNICAL
+"How many paid leave days do I have remaining this year",HR
+"I want to apply for maternity leave starting next month",HR
+"My salary slip for last month has not been generated yet",HR
+"When will the annual performance appraisal cycle begin",HR
+"I need to update my bank account details for payroll",HR
+"Requesting a letter of employment for a visa application",HR
+"What is the process to raise a reimbursement claim for travel",HR
+"I would like to report a conflict with my team lead",HR
+"Can you share the updated employee handbook and leave policy",HR
+"My provident fund contribution seems incorrect this month",HR
+"I want to apply for a transfer to the Chennai office",HR
+"When is the next round of health insurance enrollment",HR
+"Requesting approval for two days of sick leave",HR
+"How do I nominate a beneficiary for my gratuity fund",HR
+"I have not received my joining bonus that was promised",HR
+"Need clarification on the notice period for resignation",HR
+"Can I convert my unused casual leave into encashment",HR
+"Requesting an HR letter confirming my current designation",HR
+"My tax declaration form was not submitted correctly by payroll",HR
+"I want to know the eligibility criteria for the referral bonus",HR
+"What are your business hours and support contact number",GENERAL
+"Do you offer a free trial before purchasing a plan",GENERAL
+"Is there a mobile app available for this product",GENERAL
+"Can you tell me more about your data privacy policy",GENERAL
+"I would like to give feedback about the new website design",GENERAL
+"Do you have a referral program for existing customers",GENERAL
+"What languages does your platform currently support",GENERAL
+"I am interested in a partnership opportunity with your company",GENERAL
+"Can you share your office address for an in-person visit",GENERAL
+"Is there a student or non-profit discount available",GENERAL
+"How can I unsubscribe from your marketing newsletter",GENERAL
+"What is the difference between the pro and enterprise plans",GENERAL
+"I just wanted to say thank you for the great support experience",GENERAL
+"Do you have documentation available in PDF format",GENERAL
+"General product question about your roadmap for next year",GENERAL
+"Is your platform compliant with GDPR regulations",GENERAL
+"Can I get a demo scheduled for my team next week",GENERAL
+"What social media channels can I follow you on",GENERAL
+"Do you provide onboarding training for new customers",GENERAL
+"I have a general question not related to a specific issue",GENERAL
+"Overcharged on my last two invoices, please review",BILLING
+"I need to switch my payment method to a new card",BILLING
+"Late fee was applied even though I paid on time",BILLING
+"Can you send a corrected invoice with the right GST number",BILLING
+"My discount code expired before I could use it, please honor it",BILLING
+"Server keeps returning a 502 bad gateway error",TECHNICAL
+"Cannot connect to the database after the last update",TECHNICAL
+"The app shows a blank screen after login on Windows",TECHNICAL
+"Push notifications stopped working after the recent app update",TECHNICAL
+"Getting an SSL handshake failure when connecting to the API",TECHNICAL
+"I need details about the group health insurance plan for my family",HR
+"Requesting an update on my background verification status",HR
+"My leave request was rejected without any explanation",HR
+"Can HR clarify the work-from-home policy for this quarter",HR
+"I want to raise a grievance regarding unequal pay",HR
+"Do you support single sign-on with Google Workspace",GENERAL
+"What is your average response time for support tickets",GENERAL
+"Can I get a case study of a similar company using your product",GENERAL
+"Is there an API rate limit I should be aware of",GENERAL
+"I would like to schedule a call with your sales team",GENERAL
+"why was i charged for a plan i cancelled last week??",BILLING
+"Requesting a full refund, the product did not work as advertised",BILLING
+"There's a mismatch between what I was quoted and what got billed",BILLING
+"can someone explain the extra $12 processing fee on my invoice",BILLING
+"I need my last 3 invoices resent, I can't find them in my inbox",BILLING
+"Trial ended but you charged my card before I could decide",BILLING
+"Payment gateway declined my card but money still left my account",BILLING
+"pls help - annual plan billed me monthly rate by mistake",BILLING
+"Is GST included in the displayed price or added separately",BILLING
+"I'd like to dispute a charge from three months ago",BILLING
+"My company needs a GST invoice, not a personal receipt",BILLING
+"Switching plans mid-cycle - will I be charged again immediately",BILLING
+"The proration on my upgrade doesn't add up, can you check",BILLING
+"Requesting cancellation confirmation and final billing statement",BILLING
+"Two subscriptions showing on my card for the same account",BILLING
+"How do I remove an old expired card from billing settings",BILLING
+"Your pricing page shows a different amount than what I was charged",BILLING
+"I need help understanding the currency conversion on my bill",BILLING
+"Refund request - accidentally purchased the wrong add-on",BILLING
+"When does the next billing cycle start for my account",BILLING
+"Charged in USD instead of INR, please correct this",BILLING
+"My promo code got removed after I updated my card details",BILLING
+"Requesting an extension before the next payment is due",BILLING
+"I was charged for 5 seats but only added 3 team members",BILLING
+"Can I get a payment plan instead of one lump sum invoice",BILLING
+"Overdue notice received but I already paid via bank transfer",BILLING
+"Why is there a foreign transaction fee on a domestic card",BILLING
+"Need an invoice addressed to our finance department, not to me",BILLING
+"Downgraded my plan last month but still billed the higher tier",BILLING
+"Requesting clarity on what the 'platform fee' line item covers",BILLING
+"my subscription auto renewed and now i want my money back",BILLING
+"The discount I signed up under isn't reflected in this invoice",BILLING
+"can you check why my refund is taking longer than 5 business days",BILLING
+"Billed for an annual plan when I only agreed to monthly",BILLING
+"Requesting itemized tax breakdown for our accounting records",BILLING
+"nothing loads, just a white screen after i log in",TECHNICAL
+"getting error code ERR_CONN_RESET when opening the app",TECHNICAL
+"Uploads fail every single time above 10mb, no error message shown",TECHNICAL
+"The calendar sync with Outlook broke after yesterday's update",TECHNICAL
+"App keeps asking me to re-login every 2 minutes, very annoying",TECHNICAL
+"Webhook events stopped firing since this morning",TECHNICAL
+"Getting 'invalid token' error even with a freshly generated key",TECHNICAL
+"The chart on the analytics page just spins forever loading",TECHNICAL
+"cant reset password, the email never arrives even after resend",TECHNICAL
+"Autosave feature isn't saving, I lost an hour of work",TECHNICAL
+"Server error 503 when trying to access the admin panel",TECHNICAL
+"The app is stuck on 'syncing...' and never finishes",TECHNICAL
+"Dark mode toggle causes the whole page to go blank",TECHNICAL
+"Getting duplicate entries every time I refresh the records page",TECHNICAL
+"Cant download my exported report, the link is broken",TECHNICAL
+"Login works on desktop but fails every time on the mobile app",TECHNICAL
+"receiving a cors error in the browser console when calling the api",TECHNICAL
+"The drag and drop file uploader just doesn't respond to clicks",TECHNICAL
+"Getting an out of memory crash when opening large files",TECHNICAL
+"Push notification settings keep resetting on their own",TECHNICAL
+"The search bar throws a javascript error and freezes the tab",TECHNICAL
+"Two-way sync with our database is 12 hours behind now",TECHNICAL
+"App icon shows a red badge but there's nothing new inside",TECHNICAL
+"getting 'permission denied' even though i'm listed as an admin",TECHNICAL
+"The PDF export cuts off content on the last page every time",TECHNICAL
+"Random logout happens mid-session, losing unsaved changes",TECHNICAL
+"Chatbot widget on our site throws a console error and disappears",TECHNICAL
+"Bulk delete button does nothing when clicked, no confirmation shown",TECHNICAL
+"Slack integration keeps disconnecting every few hours",TECHNICAL
+"The onboarding wizard gets stuck on step 3 for every new user",TECHNICAL
+"Getting a blank invoice PDF when I click download",TECHNICAL
+"App won't install on Android 14, install just fails silently",TECHNICAL
+"The timezone shown in reports doesn't match our account settings",TECHNICAL
+"Getting flooded with duplicate email notifications for one event",TECHNICAL
+"Trying to migrate data but the import tool times out every time",TECHNICAL
+"can i carry forward unused leave to next year, what's the limit",HR
+"Need the org chart updated, my manager changed last month",HR
+"Requesting details on the referral bonus payout timeline",HR
+"my provident fund statement shows a different employer contribution",HR
+"Is there a wellness stipend or gym reimbursement program",HR
+"How do I add a dependent to my health insurance policy",HR
+"requesting an official letter for my apartment rental application",HR
+"When will this year's increment letters be issued",HR
+"I'd like to formally raise a workplace harassment complaint",HR
+"Can HR confirm my probation period end date in writing",HR
+"What's the process for internal job postings and transfers",HR
+"My exit interview hasn't been scheduled yet after resigning",HR
+"Requesting clarification on the hybrid work days policy",HR
+"How many casual leaves do fresh hires get in year one",HR
+"I never received my relieving letter from my last role",HR
+"Can I get an update on my pending expense reimbursement",HR
+"Payroll deducted tax at a higher slab than expected, please review",HR
+"requesting parental leave paperwork for early next year",HR
+"What documents are needed for the background verification process",HR
+"My designation on the offer letter doesn't match my ID card",HR
+"Is remote work allowed permanently or only during specific months",HR
+"Requesting an update on the pending salary revision",HR
+"How do I file for accident/medical insurance claim reimbursement",HR
+"There's a delay in my onboarding kit and laptop delivery",HR
+"Can HR clarify the policy on carrying forward sick leave",HR
+"My employee ID card access isn't working at the new office",HR
+"Requesting details about the annual bonus eligibility criteria",HR
+"Need to update my emergency contact information on file",HR
+"What's the notice period buyout process if I want to leave early",HR
+"Requesting a duplicate copy of my appointment letter",HR
+"How does the stock options vesting schedule work here",HR
+"My manager hasn't submitted my appraisal feedback yet",HR
+"Is there a policy for compensatory off after weekend work",HR
+"requesting details on the company's paternity leave policy",HR
+"Can I get clarification on the shift allowance calculation",HR
+"Do you support integration with Zapier or Make.com",GENERAL
+"What's included in the enterprise plan that isn't in pro",GENERAL
+"Just wanted to say your support team was amazing yesterday",GENERAL
+"Is there a public API changelog I can subscribe to",GENERAL
+"Can you point me to your accessibility compliance statement",GENERAL
+"How do I request a custom feature for our enterprise contract",GENERAL
+"Do you have a status page for uptime and incidents",GENERAL
+"What's your policy on data retention after account deletion",GENERAL
+"Looking for case studies in the healthcare industry specifically",GENERAL
+"Do you offer volume discounts for teams over 100 seats",GENERAL
+"Can I get a sandbox/test environment before going live",GENERAL
+"What's the typical onboarding timeline for enterprise customers",GENERAL
+"Do you have an affiliate program I can join",GENERAL
+"Is there a public roadmap where I can vote on features",GENERAL
+"Can you clarify your SOC 2 compliance status",GENERAL
+"general inquiry - do you support right-to-left languages",GENERAL
+"Would love a webinar or live demo of the newer features",GENERAL
+"What happens to our data if we cancel the subscription",GENERAL
+"Do you integrate with on-premise systems or only cloud",GENERAL
+"Just curious what tech stack you're built on",GENERAL
+"Can I white-label this product for my own clients",GENERAL
+"How often do you release new feature updates",GENERAL
+"Not a complaint, just wanted to share some product feedback",GENERAL
+"Do you have a community forum or Discord for users",GENERAL
+"What's your typical customer support response time on weekends",GENERAL
+"Is there a limit on how many workspaces we can create",GENERAL
+"Requesting an NDA before we share sensitive company data",GENERAL
+"Do you support SAML-based single sign-on for enterprise",GENERAL
+"Can you recommend an implementation partner in our region",GENERAL
+"general question - is there a dark mode planned",GENERAL
+"How do I get added to the beta testing program",GENERAL
+"Do you offer educational discounts for university students",GENERAL
+"Just checking, is customer data ever used to train models",GENERAL
+"What's the difference between your monthly and annual contracts",GENERAL
+"Do you provide a migration guide from competitor platforms",GENERAL
