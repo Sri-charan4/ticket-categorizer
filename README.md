@@ -1,7 +1,5 @@
 # Auto Email / Ticket Categorizer
 
-AI/ML Intern Assessment &mdash; Fobes Skill Itech Pvt Ltd
-
 A lightweight NLP classifier that routes an incoming support ticket to the
 correct department in real time: **BILLING**, **TECHNICAL**, **HR**, or **GENERAL**.
 Low-confidence or ambiguous tickets are automatically escalated to **NEEDS HUMAN REVIEW**.
