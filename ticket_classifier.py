@@ -28,6 +28,8 @@ Stack: Python, pandas, scikit-learn
 
 import re
 import sys
+from pathlib import Path
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -38,8 +40,11 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 import joblib
 
 RANDOM_STATE = 42
-DATA_PATH = "tickets_dataset.csv"
-MODEL_PATH = "ticket_router_model.joblib"
+# Resolved against this file, not the working directory, so the script and the
+# FastAPI server both find the data and the model whatever they're launched from.
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = str(BASE_DIR / "tickets_dataset.csv")
+MODEL_PATH = str(BASE_DIR / "ticket_router_model.joblib")
 
 # NOTE on these two thresholds: for a 4-class probability distribution that sums
 # to 1, if top1_confidence >= CONFIDENCE_THRESHOLD, the minimum possible gap to
@@ -51,6 +56,17 @@ MODEL_PATH = "ticket_router_model.joblib"
 # verified below with a real example); the original 0.60 / 0.20 pairing made
 # the ambiguity branch mathematically unreachable.
 CONFIDENCE_THRESHOLD = 0.50          # BONUS: needs-human-review threshold
+
+# BONUS: 5 new, unseen tickets written for this assessment. Module-level so the
+# static demo and the FastAPI /api/samples endpoint serve the same list.
+SAMPLE_TICKETS = [
+    "My card was charged twice for the same order, please refund",
+    "The dashboard throws a 500 error every time I try to save",
+    "Requesting details on the maternity leave policy update",
+    "Do you have an API rate limit I should know about",
+    "asdkj random text that fits nowhere in particular",   # edge case
+]
+
 URGENT_KEYWORDS = {                   # BONUS: keyword-based priority tagging
     "urgent", "asap", "immediately", "down", "not working", "crash",
     "crashed", "crashes", "failed", "failing", "broken", "emergency",
@@ -233,8 +249,8 @@ def route_ticket(pipeline: Pipeline, ticket_text: str) -> dict:
 
     # Top-2 predictions by probability
     top2_idx = proba.argsort()[-2:][::-1]        # indices of top-2 scores, descending
-    top1_dept, top1_conf = classes[top2_idx[0]], proba[top2_idx[0]]
-    top2_dept, top2_conf = classes[top2_idx[1]], proba[top2_idx[1]]
+    top1_dept, top1_conf = str(classes[top2_idx[0]]), float(proba[top2_idx[0]])
+    top2_dept, top2_conf = str(classes[top2_idx[1]]), float(proba[top2_idx[1]])
 
     needs_review, review_reason = assess_review(top1_dept, top1_conf, top2_dept, top2_conf)
     priority = get_priority(ticket_text)          # BONUS
@@ -247,6 +263,9 @@ def route_ticket(pipeline: Pipeline, ticket_text: str) -> dict:
         "review_reason": review_reason,
         "runner_up": {"department": top2_dept, "confidence": top2_conf},
         "priority": priority,
+        # Full distribution over every department, so callers (e.g. the web UI)
+        # can show the whole picture instead of just the top two.
+        "distribution": {str(c): float(p) for c, p in zip(classes, proba)},
     }
 
 
@@ -259,15 +278,7 @@ def run_static_demo(pipeline: Pipeline):
     print("LIVE ROUTING PREVIEW - 5 new unseen tickets")
     print("=" * 60)
 
-    new_tickets = [
-        "My card was charged twice for the same order, please refund",
-        "The dashboard throws a 500 error every time I try to save",
-        "Requesting details on the maternity leave policy update",
-        "Do you have an API rate limit I should know about",
-        "asdkj random text that fits nowhere in particular",   # edge case
-    ]
-
-    for i, ticket in enumerate(new_tickets, start=1):
+    for i, ticket in enumerate(SAMPLE_TICKETS, start=1):
         result = route_ticket(pipeline, ticket)
         reason = f"\n   !! reason: {result['review_reason']}" if result["review_reason"] else ""
         print(

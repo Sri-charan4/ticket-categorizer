@@ -9,6 +9,9 @@ Low-confidence or ambiguous tickets are automatically escalated to **NEEDS HUMAN
 - `tickets_dataset.csv` — dummy labeled dataset (240 tickets, 60 per category, no duplicates)
 - `ticket_classifier.py` — cleans data, trains/compares models, evaluates, and demos
 - `ticket_router_model.joblib` — saved trained model (generated after running the script)
+- `api.py` — FastAPI wrapper: serves the trained model over HTTP and hosts the web UI
+- `static/` — the **Routing Desk** web UI (`index.html`, `styles.css`, `app.js`)
+- `requirements.txt` — all dependencies for both the script and the web app
 
 ## How to run
 
@@ -118,6 +121,91 @@ deactivate                             # exit the venv when done
 > run this once: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
 ---
+
+## Web UI — the Routing Desk
+
+The same model, wrapped in FastAPI and served with a small front end so a ticket
+can be routed in the browser instead of the terminal.
+
+The server loads `ticket_router_model.joblib` at startup and trains a fresh
+model only if that file is missing.
+
+### 🐧 Linux / 🍎 macOS
+
+```bash
+cd ~/ticket_categorizer
+.venv/bin/pip install -r requirements.txt
+.venv/bin/uvicorn api:app --reload
+```
+
+### 🪟 Windows (Command Prompt)
+
+```cmd
+cd %USERPROFILE%\ticket_categorizer
+.venv\Scripts\pip install -r requirements.txt
+.venv\Scripts\uvicorn api:app --reload
+```
+
+### 🪟 Windows (PowerShell)
+
+```powershell
+cd $env:USERPROFILE\ticket_categorizer
+.venv\Scripts\pip install -r requirements.txt
+.venv\Scripts\uvicorn api:app --reload
+```
+
+> **No `.venv` yet?** Create it first with the **First-time setup** block for your
+> OS above, then run `pip install -r requirements.txt` instead of the package list
+> — `requirements.txt` covers both the script and the web app.
+
+**Then open <http://127.0.0.1:8000> in a browser.**
+
+The last command does not finish: it prints `Uvicorn running on
+http://127.0.0.1:8000` and keeps running, because it *is* the server. Leave that
+terminal open while you use the page, and press `Ctrl+C` in it to stop.
+`--reload` restarts the server automatically whenever you edit the code.
+
+The page prints a **routing slip** for each ticket: the department, the
+confidence, and — the point of the screen — the two checks that actually decide
+whether the ticket is routed or held. The bar chart shows the model's
+probability across all four departments with the 50% confidence floor drawn
+across it, so a held ticket visibly falls short of the line. Colour marks the
+*decision* (cleared / held), never the department; every bar is labelled in
+words.
+
+### Endpoints
+
+| Method | Path | Does |
+|---|---|---|
+| `GET` | `/` | The Routing Desk UI |
+| `GET` | `/api/health` | Model name, departments, and the two thresholds |
+| `GET` | `/api/samples` | The 5 unseen sample tickets |
+| `POST` | `/api/classify` | Route one ticket |
+| `POST` | `/api/classify/batch` | Route up to 100 tickets in one call |
+| `GET` | `/docs` | Auto-generated OpenAPI docs |
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/classify \
+  -H 'Content-Type: application/json' \
+  -d '{"ticket_text": "My card was charged twice for the same order, please refund"}'
+```
+
+```json
+{
+  "id": "TCK-3001",
+  "department": "BILLING",
+  "model_prediction": "BILLING",
+  "confidence": 0.9422,
+  "needs_review": false,
+  "review_reason": null,
+  "runner_up": {"department": "HR", "confidence": 0.0208},
+  "priority": "NORMAL",
+  "distribution": {"BILLING": 0.9422, "GENERAL": 0.0183, "HR": 0.0208, "TECHNICAL": 0.0187}
+}
+```
+
+Adding `?ticket=...` to the page URL routes that ticket on load, so a particular
+slip can be linked to directly.
 
 ## Approach summary (for the submission form)
 

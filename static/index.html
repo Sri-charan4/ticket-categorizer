@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Routing Desk · Auto Ticket Categorizer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header class="rail">
+  <span class="rail__glyph" aria-hidden="true">&#8623;</span>
+  <h1 class="rail__title">Routing&nbsp;Desk</h1>
+  <dl class="rail__meta">
+    <div><dt>model</dt><dd id="meta-model">&mdash;</dd></div>
+    <div><dt>departments</dt><dd id="meta-classes">&mdash;</dd></div>
+    <div title="A ticket is only routed if the winning department scores at least this much. Below it, a person looks at the ticket.">
+      <dt>confidence floor</dt><dd id="meta-floor">&mdash;</dd>
+    </div>
+    <div title="The winning department must also beat the runner-up by at least this much. A close second means a person looks at the ticket.">
+      <dt>lead margin</dt><dd id="meta-margin">&mdash;</dd>
+    </div>
+  </dl>
+</header>
+
+<main class="desk">
+
+  <!-- ------------------------------------------------ intake -->
+  <section class="card card--intake" aria-labelledby="intake-h">
+    <p class="card__eyebrow">Form 1</p>
+    <h2 class="card__title" id="intake-h">Incoming ticket</h2>
+
+    <form id="route-form">
+      <label class="field">
+        <span class="field__label">Ticket text &mdash; subject and body</span>
+        <textarea id="ticket" name="ticket" rows="7" maxlength="5000"
+                  placeholder="I was charged twice for my subscription this month&#8230;"
+                  autocomplete="off" spellcheck="false" required></textarea>
+      </label>
+      <div class="actions">
+        <button class="btn" type="submit" id="submit">Route ticket</button>
+        <span class="hint"><kbd>Ctrl</kbd>&thinsp;+&thinsp;<kbd>Enter</kbd></span>
+      </div>
+    </form>
+
+    <div class="samples">
+      <p class="samples__label">Or pull an unseen sample</p>
+      <ul class="samples__list" id="samples"></ul>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------ slip -->
+  <section class="card card--slip" aria-labelledby="slip-h" aria-live="polite">
+    <div class="slip__head">
+      <div>
+        <p class="card__eyebrow">Form 2</p>
+        <h2 class="card__title" id="slip-h">Routing slip</h2>
+      </div>
+      <p class="slip__no" id="slip-no"></p>
+    </div>
+
+    <div class="slip__empty" id="slip-empty">
+      <p>No slip issued yet.</p>
+      <p class="slip__empty-sub">Route a ticket and its slip prints here &mdash; department, confidence, and the two checks that decide whether a person needs to look at it.</p>
+    </div>
+
+    <div class="slip__body" id="slip-body" hidden>
+      <div class="verdict">
+        <p class="verdict__label" id="verdict-label">Routed to</p>
+        <p class="verdict__dept" id="verdict-dept"></p>
+        <p class="verdict__conf"><span id="verdict-conf"></span> confidence &middot; <span class="chip" id="verdict-priority"></span></p>
+        <p class="stamp" id="stamp"></p>
+      </div>
+
+      <figure class="band">
+        <figcaption class="band__caption">
+          Where the model put its probability
+          <span class="band__sub" id="band-sub"></span>
+        </figcaption>
+        <div class="band__plot" id="band-plot"></div>
+        <p class="band__axis"><span>0%</span><span class="band__floor-tick">50% floor</span><span>100%</span></p>
+      </figure>
+
+      <ul class="checks" id="checks"></ul>
+
+      <details class="table">
+        <summary>Table view</summary>
+        <table>
+          <thead><tr><th scope="col">Department</th><th scope="col">Probability</th></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </details>
+    </div>
+
+    <p class="slip__error" id="slip-error" hidden></p>
+  </section>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
